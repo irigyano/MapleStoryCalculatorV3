@@ -14,7 +14,7 @@ class Charactor():
             '狂豹獵人','機甲戰神','煉獄巫師','爆拳槍神','惡魔殺手','傑諾',#'惡魔復仇者',
             '龍魔導士','精靈遊俠','狂狼勇士','夜光','幻影俠盜','隱月',
             '天使破壞者','凱撒','卡蒂娜','凱殷',
-            '伊利恩','亞克','阿戴爾', '卡莉'
+            '伊利恩','亞克','阿戴爾','卡莉',
             '神之子(琉)','神之子(璃)',
             '凱內西斯',
             '虎影','菈菈',
@@ -184,7 +184,6 @@ class Charactor():
         me.data = {
             'LEVEL': 0,
             'CLASS_IDX': 0, 'CLASS_NAME': '',
-            'MIN_DMG': 0, 'MAX_DMG': 0,
             'WP_IDX': 0, 'WP_VALUE': 0,
             'ATTACK': 0, 'ATTACK_P': 0,
             'DMG_P': 0, 'BOSS_P': 0,
@@ -195,27 +194,15 @@ class Charactor():
 
             'STR': 0, 
             'STR_P': 0, 'STR_CLEAR': 0, 'STR_UNIQUE': 0,
-            'STR_BEFORE': 0,
-            'STR_RANGE': 0,
-            'STR_RANGE_IS_P': 0,
 
             'DEX': 0, 
             'DEX_P': 0, 'DEX_CLEAR': 0, 'DEX_UNIQUE': 0,
-            'DEX_BEFORE': 0,
-            'DEX_RANGE': 0,
-            'DEX_RANGE_IS_P': 0,
 
             'INT': 0, 
             'INT_P': 0, 'INT_CLEAR': 0, 'INT_UNIQUE': 0,
-            'INT_BEFORE': 0,
-            'INT_RANGE': 0,
-            'INT_RANGE_IS_P': 0,
 
             'LUK': 0, 
             'LUK_P': 0, 'LUK_CLEAR': 0, 'LUK_UNIQUE': 0,
-            'LUK_BEFORE': 0,
-            'LUK_RANGE': 0,
-            'LUK_RANGE_IS_P': 0,
 
             'FIX': 1
         }
@@ -225,8 +212,6 @@ class Charactor():
     def updateAbilityByData(me, data):
 
         if('LEVEL' in data): me.data['LEVEL'] = data['LEVEL']
-        if('MIN_DMG' in data): me.data['MIN_DMG'] = data['MIN_DMG']
-        if('MAX_DMG' in data): me.data['MAX_DMG'] = data['MAX_DMG']
         if('ATTACK' in data): me.data['ATTACK'] = data['ATTACK']
         if('ATTACK_P' in data): me.data['ATTACK_P'] = data['ATTACK_P']
         if('DMG_P' in data): me.data['DMG_P'] = data['DMG_P']
@@ -236,28 +221,20 @@ class Charactor():
         if('FINALDMG_P' in data): me.data['FINALDMG_P'] = data['FINALDMG_P']
         if('DEFENSE_P' in data): me.data['DEFENSE_P'] = data['DEFENSE_P']
 
-        if('STR_BEFORE' in data): me.data['STR_BEFORE'] = data['STR_BEFORE']
-        if('STR_RANGE' in data): me.data['STR_RANGE'] = data['STR_RANGE']
-        if('STR_RANGE_IS_P' in data): me.data['STR_RANGE_IS_P'] = data['STR_RANGE_IS_P']
-        if('STR' in data): me.data['STR'] = data['STR']
+        if('STR_CLEAR' in data): me.data['STR_CLEAR'] = data['STR_CLEAR']
+        if('STR_P' in data): me.data['STR_P'] = data['STR_P']
         if('STR_UNIQUE' in data): me.data['STR_UNIQUE'] = data['STR_UNIQUE']
 
-        if('DEX_BEFORE' in data): me.data['DEX_BEFORE'] = data['DEX_BEFORE']
-        if('DEX_RANGE' in data): me.data['DEX_RANGE'] = data['DEX_RANGE']
-        if('DEX_RANGE_IS_P' in data): me.data['DEX_RANGE_IS_P'] = data['DEX_RANGE_IS_P']
-        if('DEX' in data): me.data['DEX'] = data['DEX']
+        if('DEX_CLEAR' in data): me.data['DEX_CLEAR'] = data['DEX_CLEAR']
+        if('DEX_P' in data): me.data['DEX_P'] = data['DEX_P']
         if('DEX_UNIQUE' in data): me.data['DEX_UNIQUE'] = data['DEX_UNIQUE']
 
-        if('INT_BEFORE' in data): me.data['INT_BEFORE'] = data['INT_BEFORE']
-        if('INT_RANGE' in data): me.data['INT_RANGE'] = data['INT_RANGE']
-        if('INT_RANGE_IS_P' in data): me.data['INT_RANGE_IS_P'] = data['INT_RANGE_IS_P']
-        if('INT' in data): me.data['INT'] = data['INT']
+        if('INT_CLEAR' in data): me.data['INT_CLEAR'] = data['INT_CLEAR']
+        if('INT_P' in data): me.data['INT_P'] = data['INT_P']
         if('INT_UNIQUE' in data): me.data['INT_UNIQUE'] = data['INT_UNIQUE']
 
-        if('LUK_BEFORE' in data): me.data['LUK_BEFORE'] = data['LUK_BEFORE']
-        if('LUK_RANGE' in data): me.data['LUK_RANGE'] = data['LUK_RANGE']
-        if('LUK_RANGE_IS_P' in data): me.data['LUK_RANGE_IS_P'] = data['LUK_RANGE_IS_P']
-        if('LUK' in data): me.data['LUK'] = data['LUK']
+        if('LUK_CLEAR' in data): me.data['LUK_CLEAR'] = data['LUK_CLEAR']
+        if('LUK_P' in data): me.data['LUK_P'] = data['LUK_P']
         if('LUK_UNIQUE' in data): me.data['LUK_UNIQUE'] = data['LUK_UNIQUE']
         
         if('CLASS_IDX' in data): 
@@ -268,41 +245,46 @@ class Charactor():
             me.data['WP_IDX'] = data['WP_IDX']
             me.data['WP_VALUE'] = float(me.getWPlist()[data['WP_IDX']])
 
+        
         # 計算四大屬性
         AP_INFO_STR = me.getAPinfo('STR', me.data)
+        me.data['STR'] = AP_INFO_STR['AP']
         me.data['STR_P'] = AP_INFO_STR['AP_P']
         me.data['STR_CLEAR'] = AP_INFO_STR['AP_CLEAR']
         me.data['STR_UNIQUE'] = AP_INFO_STR['AP_UNIQUE']
 
         AP_INFO_DEX = me.getAPinfo('DEX', me.data)
+        me.data['DEX'] = AP_INFO_DEX['AP']
         me.data['DEX_P'] = AP_INFO_DEX['AP_P']
         me.data['DEX_CLEAR'] = AP_INFO_DEX['AP_CLEAR']
         me.data['DEX_UNIQUE'] = AP_INFO_DEX['AP_UNIQUE']
 
         AP_INFO_INT = me.getAPinfo('INT', me.data)
+        me.data['INT'] = AP_INFO_INT['AP']
         me.data['INT_P'] = AP_INFO_INT['AP_P']
         me.data['INT_CLEAR'] = AP_INFO_INT['AP_CLEAR']
         me.data['INT_UNIQUE'] = AP_INFO_INT['AP_UNIQUE']
 
         AP_INFO_LUK = me.getAPinfo('LUK', me.data)
+        me.data['LUK'] = AP_INFO_LUK['AP']
         me.data['LUK_P'] = AP_INFO_LUK['AP_P']
         me.data['LUK_CLEAR'] = AP_INFO_LUK['AP_CLEAR']
         me.data['LUK_UNIQUE'] = AP_INFO_LUK['AP_UNIQUE']
-
+        """
         # print(CLASS_NAME)
         myAttribute = me.calcAttributeByClass(me.data)
         WP_VALUE = me.data['WP_VALUE']
         ATTACK_P = me.data['ATTACK_P']
         DMG_P = me.data['DMG_P']
         FINALDMG_P = me.data['FINALDMG_P']
-        MAX_DMG = me.data['MAX_DMG']
         
-        ATTACK = MAX_DMG / ( myAttribute * WP_VALUE * (1 + ATTACK_P) * 0.01 * (1 + DMG_P) * (1 + FINALDMG_P) )
+
+        ATTACK = 1#MAX_DMG / ( myAttribute * WP_VALUE * (1 + ATTACK_P) * 0.01 * (1 + DMG_P) * (1 + FINALDMG_P) )
         if(me.data['ATTACK'] == 0):
             me.data['ATTACK'] = ATTACK
         else:
             me.data['FIX'] = ATTACK / me.data['ATTACK']
-        
+        """
         # print('\n------------ updateAbilityByData ------------')
         # print(me.data)
         me.isReset = False
@@ -312,38 +294,21 @@ class Charactor():
     def getAPinfo(me, aptype, data):
         AP_TYPE = aptype
         AP_INFO = {
+            'AP': 0,
             'AP_P': 0,
             'AP_CLEAR': 0,
             'AP_UNIQUE': 0,
         }
 
-        AP_BEFORE = data[AP_TYPE + '_BEFORE']
-        AP_RANGE = data[AP_TYPE + '_RANGE']
-        AP_RANGE_IS_P = data[AP_TYPE + '_RANGE_IS_P']
-        AP_AFTER = data[AP_TYPE]
+        AP_CLEAR = data[AP_TYPE + '_CLEAR']
+        AP_P = data[AP_TYPE + '_P']
         AP_UNIQUE = data[AP_TYPE + '_UNIQUE']
-        AP_DIFF = AP_AFTER - AP_BEFORE
-        AP_CLEAR = AP_AFTER - AP_UNIQUE
+        AP = AP_CLEAR * (1+AP_P) + AP_UNIQUE
 
+        AP_INFO['AP'] = AP
+        AP_INFO['AP_CLEAR'] = AP_CLEAR
+        AP_INFO['AP_P'] = AP_P
         AP_INFO['AP_UNIQUE'] = AP_UNIQUE
-        # AP_RANGE = 純屬性
-        if (AP_RANGE_IS_P == 0):
-            # 屬性% = (差 / 變量) -1
-            # 純屬性 = (屬性 - 不吃%) / (1 + 屬性% )
-            
-            AP_INFO['AP_P'] = (AP_DIFF / AP_RANGE) - 1 
-            AP_INFO['AP_CLEAR'] = AP_CLEAR / (1 + AP_INFO['AP_P']) 
-
-        # AP_RANGE = 屬性%
-        if (AP_RANGE_IS_P == 1):
-            # 純屬性 = 差 / 變量%
-            # 屬性% = (屬性 - 不吃%) / 純屬姓 -1
-            
-            AP_INFO['AP_CLEAR'] = AP_DIFF / (AP_RANGE / 100) 
-            AP_INFO['AP_P'] = (AP_CLEAR / AP_INFO['AP_CLEAR']) -1
-        
-        # print('\n------------ getAPinfo ------------')
-        # print (str(AP_TYPE) + '\t純屬性= ' + str(round(AP_INFO['AP_CLEAR'])) + '\t屬性%= ' + str(round(AP_INFO['AP_P']*100, 4)) + '%')
         return AP_INFO
 
     # function: 計算AP
@@ -379,7 +344,7 @@ class Charactor():
         if(CLASS_INFO['DEX'] == 'minor'): MINOR_AP += data['DEX']
         if(CLASS_INFO['INT'] == 'minor'): MINOR_AP += data['INT']
         if(CLASS_INFO['LUK'] == 'minor'): MINOR_AP += data['LUK']
-        
+
         myAttribute = (4 * MAIN_AP) + MINOR_AP
         # print('\n------------ calcAttributeByClass ------------')
         # print(myAttribute)
@@ -506,7 +471,7 @@ class Charactor():
         if('LUK_UNIQUE' in new_data):
             ESTIMATE_INFO['LUK_UNIQUE'] += new_data['LUK_UNIQUE']
 
-        # LUK_UNIQUE
+        # ALL_P
         if('ALL_P' in new_data):
             ESTIMATE_INFO['ALL_P'] += new_data['ALL_P']
 
@@ -531,16 +496,19 @@ class Charactor():
 
             'STR_CLEAR': 1,
             'STR_P': 1,
-            'STR'
+            'STR_UNIQUE': 1,
 
             'DEX_CLEAR': 1,
             'DEX_P': 1,
+            'DEX_UNIQUE': 1,
 
             'INT_CLEAR': 1,
             'INT_P': 1,
+            'INT_UNIQUE': 1,
 
             'LUK_CLEAR': 1,
             'LUK_P': 1,
+            'STR_UNIQUE': 1,
 
             'ALL_P': 1,
             'TOTAL': 1
@@ -574,11 +542,11 @@ class Charactor():
         def getOrigin():
             ORIGIN_ATTRIBUTE = {
                 'CLASS_NAME': data['CLASS_NAME'],
-                'STR': (data['STR_CLEAR'] * (1 + data['STR_P'])) + data['STR_UNIQUE'],
-                'DEX': (data['DEX_CLEAR'] * (1 + data['DEX_P'])) + data['DEX_UNIQUE'],
-                'INT': (data['INT_CLEAR'] * (1 + data['INT_P'])) + data['INT_UNIQUE'],
-                'LUK': (data['LUK_CLEAR'] * (1 + data['LUK_P'])) + data['LUK_UNIQUE'],
-            }    
+                'STR': data['STR'],
+                'DEX': data['DEX'],
+                'INT': data['INT'],
+                'LUK': data['LUK'],
+            }
             return ORIGIN_ATTRIBUTE
         
         myAttribute = me.calcAttributeByClass(getOrigin())
@@ -593,6 +561,11 @@ class Charactor():
         NEW_ATTRIBUTE['STR'] = (data['STR_CLEAR'] * (1 + ESTIMATE_INFO['STR_P'])) + data['STR_UNIQUE']
         IMPROVE_INFO['STR_P'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
         
+        # STR_UNIQUE
+        NEW_ATTRIBUTE = getOrigin()
+        NEW_ATTRIBUTE['STR'] = (data['STR_CLEAR'] * (1 + data['STR_P'])) + ESTIMATE_INFO['STR_UNIQUE']
+        IMPROVE_INFO['STR_UNIQUE'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
+
         # DEX
         NEW_ATTRIBUTE = getOrigin()
         NEW_ATTRIBUTE['DEX'] = (ESTIMATE_INFO['DEX_CLEAR'] * (1 + data['DEX_P'])) + data['DEX_UNIQUE']
@@ -602,6 +575,11 @@ class Charactor():
         NEW_ATTRIBUTE = getOrigin()
         NEW_ATTRIBUTE['DEX'] = (data['DEX_CLEAR'] * (1 + ESTIMATE_INFO['DEX_P'])) + data['DEX_UNIQUE']
         IMPROVE_INFO['DEX_P'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
+        
+        # DEX_UNIQUE
+        NEW_ATTRIBUTE = getOrigin()
+        NEW_ATTRIBUTE['DEX'] = (data['DEX_CLEAR'] * (1 + data['DEX_P'])) + ESTIMATE_INFO['DEX_UNIQUE']
+        IMPROVE_INFO['DEX_UNIQUE'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
 
         # INT
         NEW_ATTRIBUTE = getOrigin()
@@ -612,6 +590,11 @@ class Charactor():
         NEW_ATTRIBUTE = getOrigin()
         NEW_ATTRIBUTE['INT'] = (data['INT_CLEAR'] * (1 + ESTIMATE_INFO['INT_P'])) + data['INT_UNIQUE']
         IMPROVE_INFO['INT_P'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
+        
+        # INT_UNIQUE
+        NEW_ATTRIBUTE = getOrigin()
+        NEW_ATTRIBUTE['INT'] = (data['INT_CLEAR'] * (1 + data['INT_P'])) + ESTIMATE_INFO['INT_UNIQUE']
+        IMPROVE_INFO['INT_UNIQUE'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
 
         # LUK
         NEW_ATTRIBUTE = getOrigin()
@@ -622,6 +605,11 @@ class Charactor():
         NEW_ATTRIBUTE = getOrigin()
         NEW_ATTRIBUTE['LUK'] = (data['LUK_CLEAR'] * (1 + ESTIMATE_INFO['LUK_P'])) + data['LUK_UNIQUE']
         IMPROVE_INFO['LUK_P'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
+        
+        # LUK_UNIQUE
+        NEW_ATTRIBUTE = getOrigin()
+        NEW_ATTRIBUTE['LUK'] = (data['LUK_CLEAR'] * (1 + data['LUK_P'])) + ESTIMATE_INFO['LUK_UNIQUE']
+        IMPROVE_INFO['LUK_UNIQUE'] = me.calcAttributeByClass(NEW_ATTRIBUTE) / myAttribute
 
         # 全屬%
         NEW_ATTRIBUTE = getOrigin()
@@ -668,15 +656,19 @@ class Charactor():
             
             'STR_CLEAR': 0,
             'STR_P': 0,
+            'STR_UNIQUE': 0,
             
             'DEX_CLEAR': 0,
             'DEX_P': 0,
+            'DEX_UNIQUE': 0,
 
             'INT_CLEAR': 0,
             'INT_P': 0,
+            'INT_UNIQUE': 0,
 
             'LUK_CLEAR': 0,
             'LUK_P': 0,
+            'LUK_UNIQUE': 0,
         }
 
         if (IMPROVE_RANGE == 1):
@@ -696,7 +688,7 @@ class Charactor():
 
         # 計算等效屬性
         myAttribute = me.calcAttributeByClass(data)
-
+        
         CLASS_INFO = me.getClassInfo(data['CLASS_NAME'])
         # --------------------- STR ---------------------
         # STR = 主屬
@@ -717,6 +709,7 @@ class Charactor():
             NEW_AP -= data['STR_UNIQUE']
             STATE_INFO['STR_CLEAR'] = (NEW_AP / (1 + data['STR_P'])) - data['STR_CLEAR']
             STATE_INFO['STR_P'] = (NEW_AP / data['STR_CLEAR']) - (1 + data['STR_P'])
+            STATE_INFO['STR_UNIQUE'] = STATE_INFO['STR_CLEAR'] * (1 + data['STR_P'])
         
         # STR = 副屬
         if(CLASS_INFO['STR'] == 'minor'):
@@ -727,6 +720,7 @@ class Charactor():
             NEW_AP -= data['STR_UNIQUE']
             STATE_INFO['STR_CLEAR'] = (NEW_AP / (1 + data['STR_P'])) - data['STR_CLEAR']
             STATE_INFO['STR_P'] = (NEW_AP / data['STR_CLEAR']) - (1 + data['STR_P'])
+            STATE_INFO['STR_UNIQUE'] = STATE_INFO['STR_CLEAR'] * (1 + data['STR_P'])
         
         # --------------------- DEX ---------------------
         # DEX = 主屬
@@ -747,6 +741,7 @@ class Charactor():
             NEW_AP -= data['DEX_UNIQUE']
             STATE_INFO['DEX_CLEAR'] = (NEW_AP / (1 + data['DEX_P'])) - data['DEX_CLEAR']
             STATE_INFO['DEX_P'] = (NEW_AP / data['DEX_CLEAR']) - (1 + data['DEX_P'])
+            STATE_INFO['DEX_UNIQUE'] = STATE_INFO['DEX_CLEAR'] * (1 + data['DEX_P'])
         
         # DEX = 副屬
         if(CLASS_INFO['DEX'] == 'minor'):
@@ -757,6 +752,7 @@ class Charactor():
             NEW_AP -= data['DEX_UNIQUE']
             STATE_INFO['DEX_CLEAR'] = (NEW_AP / (1 + data['DEX_P'])) - data['DEX_CLEAR']
             STATE_INFO['DEX_P'] = (NEW_AP / data['DEX_CLEAR']) - (1 + data['DEX_P'])
+            STATE_INFO['DEX_UNIQUE'] = STATE_INFO['DEX_CLEAR'] * (1 + data['DEX_P'])
         
         # --------------------- INT ---------------------
         # INT = 主屬
@@ -777,6 +773,7 @@ class Charactor():
             NEW_AP -= data['INT_UNIQUE']
             STATE_INFO['INT_CLEAR'] = (NEW_AP / (1 + data['INT_P'])) - data['INT_CLEAR']
             STATE_INFO['INT_P'] = (NEW_AP / data['INT_CLEAR']) - (1 + data['INT_P'])
+            STATE_INFO['INT_UNIQUE'] = STATE_INFO['INT_CLEAR'] * (1 + data['INT_P'])
         
         # INT = 副屬
         if(CLASS_INFO['INT'] == 'minor'):
@@ -787,6 +784,7 @@ class Charactor():
             NEW_AP -= data['INT_UNIQUE']
             STATE_INFO['INT_CLEAR'] = (NEW_AP / (1 + data['INT_P'])) - data['INT_CLEAR']
             STATE_INFO['INT_P'] = (NEW_AP / data['INT_CLEAR']) - (1 + data['INT_P'])
+            STATE_INFO['INT_UNIQUE'] = STATE_INFO['INT_CLEAR'] * (1 + data['INT_P'])
         
         # --------------------- LUK ---------------------
         # LUK = 主屬
@@ -807,6 +805,7 @@ class Charactor():
             NEW_AP -= data['LUK_UNIQUE']
             STATE_INFO['LUK_CLEAR'] = (NEW_AP / (1 + data['LUK_P'])) - data['LUK_CLEAR']
             STATE_INFO['LUK_P'] = (NEW_AP / data['LUK_CLEAR']) - (1 + data['LUK_P'])
+            STATE_INFO['LUK_UNIQUE'] = STATE_INFO['LUK_CLEAR'] * (1 + data['LUK_P'])
         
         # LUK = 副屬
         if(CLASS_INFO['LUK'] == 'minor'):
@@ -817,7 +816,7 @@ class Charactor():
             NEW_AP -= data['LUK_UNIQUE']
             STATE_INFO['LUK_CLEAR'] = (NEW_AP / (1 + data['LUK_P'])) - data['LUK_CLEAR']
             STATE_INFO['LUK_P'] = (NEW_AP / data['LUK_CLEAR']) - (1 + data['LUK_P'])
-
+            STATE_INFO['LUK_UNIQUE'] = STATE_INFO['LUK_CLEAR'] * (1 + data['LUK_P'])
         # --------------------- 全屬% ---------------------
         # 全屬%
         AP_DIFF = myAttribute * (IMPROVE_RANGE - 1)
@@ -833,7 +832,7 @@ class Charactor():
         if(CLASS_INFO['DEX'] == 'minor'): MINOR_AP_CLEAR += data['DEX_CLEAR']
         if(CLASS_INFO['INT'] == 'minor'): MINOR_AP_CLEAR += data['INT_CLEAR']
         if(CLASS_INFO['LUK'] == 'minor'): MINOR_AP_CLEAR += data['LUK_CLEAR']
-
+        
         # AP差 / (4*淨主屬+副屬)
         STATE_INFO['ALL_P'] = AP_DIFF / ((4 * MAIN_AP_CLEAR) + MINOR_AP_CLEAR)
 
