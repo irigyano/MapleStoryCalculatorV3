@@ -3,6 +3,7 @@ import sys
 from PyQt5 import QtWidgets
 from Charactor import Charactor
 from Calculator_UI import Calculator_UI
+import math
 
 class AppWindow(QtWidgets.QDialog):
     # event: APP初始化
@@ -392,32 +393,32 @@ class AppWindow(QtWidgets.QDialog):
             IMPROVE_INFO = myCharactor.calcImprove(new_data)
             STATE_INFO = myCharactor.getEquivalent(IMPROVE_INFO['TOTAL'])
 
-            def toRoundStr(value): 
-                return str(round(value, 3))
+            def toFloorStr(value): 
+                return str(math.floor(value))
             
-            myUI.viewParameter_EQUIVALENT_ALL_P.setText(toRoundStr(STATE_INFO['ALL_P']*100))
-            myUI.viewParameter_EQUIVALENT_Att.setText(toRoundStr(STATE_INFO['ATTACK']))
-            myUI.viewParameter_EQUIVALENT_Att_P.setText(toRoundStr(STATE_INFO['ATTACK_P']*100))
-            myUI.viewParameter_EQUIVALENT_Dmg_P.setText(toRoundStr(STATE_INFO['DMG_P']*100))
-            myUI.viewParameter_EQUIVALENT_Boss_P.setText(toRoundStr(STATE_INFO['BOSS_P']*100))
-            myUI.viewParameter_EQUIVALENT_Strike_P.setText(toRoundStr(STATE_INFO['STRIKE_P']*100))
-            myUI.viewParameter_EQUIVALENT_Ignore_P.setText(toRoundStr(STATE_INFO['IGNORE_P']*100))
+            myUI.viewParameter_EQUIVALENT_ALL_P.setText(toFloorStr(STATE_INFO['ALL_P']*100))
+            myUI.viewParameter_EQUIVALENT_Att.setText(toFloorStr(STATE_INFO['ATTACK']))
+            myUI.viewParameter_EQUIVALENT_Att_P.setText(toFloorStr(STATE_INFO['ATTACK_P']*100))
+            myUI.viewParameter_EQUIVALENT_Dmg_P.setText(toFloorStr(STATE_INFO['DMG_P']*100))
+            myUI.viewParameter_EQUIVALENT_Boss_P.setText(toFloorStr(STATE_INFO['BOSS_P']*100))
+            myUI.viewParameter_EQUIVALENT_Strike_P.setText(toFloorStr(STATE_INFO['STRIKE_P']*100))
+            myUI.viewParameter_EQUIVALENT_Ignore_P.setText(toFloorStr(STATE_INFO['IGNORE_P']*100))
             
-            myUI.viewParameter_EQUIVALENT_STR_CLEAR.setText(toRoundStr(STATE_INFO['STR_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_STR_P.setText(toRoundStr(STATE_INFO['STR_P']*100))
-            myUI.viewParameter_EQUIVALENT_STR_UNIQUE.setText(toRoundStr(STATE_INFO['STR_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_STR_CLEAR.setText(toFloorStr(STATE_INFO['STR_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_STR_P.setText(toFloorStr(STATE_INFO['STR_P']*100))
+            myUI.viewParameter_EQUIVALENT_STR_UNIQUE.setText(toFloorStr(STATE_INFO['STR_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_DEX_CLEAR.setText(toRoundStr(STATE_INFO['DEX_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_DEX_P.setText(toRoundStr(STATE_INFO['DEX_P']*100))
-            myUI.viewParameter_EQUIVALENT_DEX_UNIQUE.setText(toRoundStr(STATE_INFO['DEX_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_DEX_CLEAR.setText(toFloorStr(STATE_INFO['DEX_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_DEX_P.setText(toFloorStr(STATE_INFO['DEX_P']*100))
+            myUI.viewParameter_EQUIVALENT_DEX_UNIQUE.setText(toFloorStr(STATE_INFO['DEX_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_INT_CLEAR.setText(toRoundStr(STATE_INFO['INT_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_INT_P.setText(toRoundStr(STATE_INFO['INT_P']*100))
-            myUI.viewParameter_EQUIVALENT_INT_UNIQUE.setText(toRoundStr(STATE_INFO['INT_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_INT_CLEAR.setText(toFloorStr(STATE_INFO['INT_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_INT_P.setText(toFloorStr(STATE_INFO['INT_P']*100))
+            myUI.viewParameter_EQUIVALENT_INT_UNIQUE.setText(toFloorStr(STATE_INFO['INT_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_LUK_CLEAR.setText(toRoundStr(STATE_INFO['LUK_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_LUK_P.setText(toRoundStr(STATE_INFO['LUK_P']*100))
-            myUI.viewParameter_EQUIVALENT_LUK_UNIQUE.setText(toRoundStr(STATE_INFO['LUK_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_LUK_CLEAR.setText(toFloorStr(STATE_INFO['LUK_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_LUK_P.setText(toFloorStr(STATE_INFO['LUK_P']*100))
+            myUI.viewParameter_EQUIVALENT_LUK_UNIQUE.setText(toFloorStr(STATE_INFO['LUK_UNIQUE']))
         except Exception:
             QtWidgets.QMessageBox.warning(me, '提示', '輸入資料有誤')
             pass
@@ -460,7 +461,7 @@ class AppWindow(QtWidgets.QDialog):
             ESTIMATE_INFO = myCharactor.getEstimate(new_data)
 
             def toPercentText(value): 
-                return str(round((value-1)*100, 3)) + '%'
+                return str(math.floor((value-1)*100)) + '%'
 
             IMPROVE_TEXT = '增幅 '
             myUI.viewParameter_IMPROVE_STR_CLEAR.setText(IMPROVE_TEXT + toPercentText(IMPROVE_INFO['STR_CLEAR']))
@@ -493,90 +494,90 @@ class AppWindow(QtWidgets.QDialog):
             STATE_INFO = myCharactor.getEquivalent(IMPROVE_INFO['TOTAL'])
             RANGE_TYPE = myUI.viewParameter_IMPROVE_VALUE_AS_PARAMETER.currentText().replace('　', '').replace(' ', '')
             
-            def toRoundStr(value): 
-                return str(round(value, 3))
+            def toFloorStr(value): 
+                return str(math.floor(value))
 
             PREFIX_TXT = '等同於 增加 '
             # print(STATE_INFO)
             
             if(RANGE_TYPE == '攻擊'):
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['ATTACK']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ATTACK']))
             
             if(RANGE_TYPE == '％攻擊'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['ATTACK_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ATTACK_P']*100))
             
             if(RANGE_TYPE == '％總傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['DMG_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DMG_P']*100))
             
             if(RANGE_TYPE == '％Ｂ傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['BOSS_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['BOSS_P']*100))
             
             if(RANGE_TYPE == '％爆傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['STRIKE_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STRIKE_P']*100))
             
             if(RANGE_TYPE == '％無視'):
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['IGNORE_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['IGNORE_P']*100))
             
             if(RANGE_TYPE == '％全屬'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['ALL_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ALL_P']*100))
             
             if(RANGE_TYPE == '力量'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['STR_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_CLEAR']))
             
             if(RANGE_TYPE == '％力量'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['STR_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_P']*100))
             
             if(RANGE_TYPE == '不吃％力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['STR_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_UNIQUE']))
             
             if(RANGE_TYPE == '敏捷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['DEX_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_CLEAR']))
                 
             if(RANGE_TYPE == '％敏捷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['DEX_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_P']*100))
             
             if(RANGE_TYPE == '不吃％敏'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['DEX_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_UNIQUE']))
                 
             if(RANGE_TYPE == '智力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['INT_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_CLEAR']))
             
             if(RANGE_TYPE == '％智力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['INT_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_P']*100))
             
             if(RANGE_TYPE == '不吃％智'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['INT_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_UNIQUE']))
                 
             if(RANGE_TYPE == '幸運'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['LUK_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_CLEAR']))
                 
             if(RANGE_TYPE == '％幸運'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['LUK_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_P']*100))
             
             if(RANGE_TYPE == '不吃％幸'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toRoundStr(STATE_INFO['LUK_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_UNIQUE']))
 
             # 預估值
-            myUI.viewParameter_ESTIMATE_STR.setText(str(round(ESTIMATE_INFO['STR'])))
-            myUI.viewParameter_ESTIMATE_STR_P.setText(str(round(ESTIMATE_INFO['STR_P']*100)))
+            myUI.viewParameter_ESTIMATE_STR.setText(toFloorStr(ESTIMATE_INFO['STR']))
+            myUI.viewParameter_ESTIMATE_STR_P.setText(toFloorStr(ESTIMATE_INFO['STR_P']*100))
 
-            myUI.viewParameter_ESTIMATE_DEX.setText(str(round(ESTIMATE_INFO['DEX'])))
-            myUI.viewParameter_ESTIMATE_DEX_P.setText(str(round(ESTIMATE_INFO['DEX_P']*100)))
+            myUI.viewParameter_ESTIMATE_DEX.setText(toFloorStr(ESTIMATE_INFO['DEX']))
+            myUI.viewParameter_ESTIMATE_DEX_P.setText(toFloorStr(ESTIMATE_INFO['DEX_P']*100))
 
-            myUI.viewParameter_ESTIMATE_INT.setText(str(round(ESTIMATE_INFO['INT'])))
-            myUI.viewParameter_ESTIMATE_INT_P.setText(str(round(ESTIMATE_INFO['INT_P']*100)))
+            myUI.viewParameter_ESTIMATE_INT.setText(toFloorStr(ESTIMATE_INFO['INT']))
+            myUI.viewParameter_ESTIMATE_INT_P.setText(toFloorStr(ESTIMATE_INFO['INT_P']*100))
 
-            myUI.viewParameter_ESTIMATE_LUK.setText(str(round(ESTIMATE_INFO['LUK'])))
-            myUI.viewParameter_ESTIMATE_LUK_P.setText(str(round(ESTIMATE_INFO['LUK_P']*100)))
+            myUI.viewParameter_ESTIMATE_LUK.setText(toFloorStr(ESTIMATE_INFO['LUK']))
+            myUI.viewParameter_ESTIMATE_LUK_P.setText(toFloorStr(ESTIMATE_INFO['LUK_P']*100))
 
-            myUI.viewParameter_ESTIMATE_ATTACK.setText(str(round(ESTIMATE_INFO['ATTACK'])))
-            myUI.viewParameter_ESTIMATE_ATTACK_P.setText(str(round(ESTIMATE_INFO['ATTACK_P']*100)))
+            myUI.viewParameter_ESTIMATE_ATTACK.setText(toFloorStr(ESTIMATE_INFO['ATTACK']))
+            myUI.viewParameter_ESTIMATE_ATTACK_P.setText(toFloorStr(ESTIMATE_INFO['ATTACK_P']*100))
 
-            myUI.viewParameter_ESTIMATE_DMG_P.setText(str(round(ESTIMATE_INFO['DMG_P']*100)))
-            myUI.viewParameter_ESTIMATE_BOSS_P.setText(str(round(ESTIMATE_INFO['BOSS_P']*100)))
+            myUI.viewParameter_ESTIMATE_DMG_P.setText(toFloorStr(ESTIMATE_INFO['DMG_P']*100))
+            myUI.viewParameter_ESTIMATE_BOSS_P.setText(toFloorStr(ESTIMATE_INFO['BOSS_P']*100))
 
-            myUI.viewParameter_ESTIMATE_STRIKE_P.setText(str(round(ESTIMATE_INFO['STRIKE_P']*100,2)))
-            myUI.viewParameter_ESTIMATE_IGNORE_P.setText(str(round(ESTIMATE_INFO['IGNORE_P']*100,2)))
+            myUI.viewParameter_ESTIMATE_STRIKE_P.setText(toFloorStr(ESTIMATE_INFO['STRIKE_P']*100))
+            myUI.viewParameter_ESTIMATE_IGNORE_P.setText(toFloorStr(ESTIMATE_INFO['IGNORE_P']*100))
         except Exception:
             QtWidgets.QMessageBox.warning(me, '提示', '輸入資料有誤')
             pass
@@ -917,7 +918,7 @@ class AppWindow(QtWidgets.QDialog):
                 return new_data
 
             def toPercentText(value):
-                return str(round((value-1) * 100, 2)) + '%'
+                return str(math.floor((value-1) * 100)) + '%'
 
             SET_INFO = getData()
             SET_INFO['DMG_P'] += (myUI.textToFloat(myUI.viewEquipment_Set1_DMG_P.text())/100)
