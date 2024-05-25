@@ -573,11 +573,11 @@ class AppWindow(QtWidgets.QDialog):
             myUI.viewParameter_ESTIMATE_ATTACK.setText(toFloorStr(ESTIMATE_INFO['ATTACK']))
             myUI.viewParameter_ESTIMATE_ATTACK_P.setText(toFloorStr(ESTIMATE_INFO['ATTACK_P']*100))
 
-            myUI.viewParameter_ESTIMATE_DMG_P.setText(toFloorStr(ESTIMATE_INFO['DMG_P']*100))
+            myUI.viewParameter_ESTIMATE_DMG_P.setText(str(round(ESTIMATE_INFO['DMG_P']*100,2)))
             myUI.viewParameter_ESTIMATE_BOSS_P.setText(toFloorStr(ESTIMATE_INFO['BOSS_P']*100))
 
-            myUI.viewParameter_ESTIMATE_STRIKE_P.setText(toFloorStr(ESTIMATE_INFO['STRIKE_P']*100))
-            myUI.viewParameter_ESTIMATE_IGNORE_P.setText(toFloorStr(ESTIMATE_INFO['IGNORE_P']*100))
+            myUI.viewParameter_ESTIMATE_STRIKE_P.setText(str(round(ESTIMATE_INFO['STRIKE_P']*100,2)))
+            myUI.viewParameter_ESTIMATE_IGNORE_P.setText(str(round(ESTIMATE_INFO['IGNORE_P']*100,2)))
         except Exception:
             QtWidgets.QMessageBox.warning(me, '提示', '輸入資料有誤')
             pass
