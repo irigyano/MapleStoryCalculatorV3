@@ -461,7 +461,7 @@ class AppWindow(QtWidgets.QDialog):
             ESTIMATE_INFO = myCharactor.getEstimate(new_data)
 
             def toPercentText(value): 
-                return str(math.floor((value-1)*100)) + '%'
+                return str(round((value-1)*100,2)) + '%'
 
             IMPROVE_TEXT = '增幅 '
             myUI.viewParameter_IMPROVE_STR_CLEAR.setText(IMPROVE_TEXT + toPercentText(IMPROVE_INFO['STR_CLEAR']))
@@ -918,7 +918,7 @@ class AppWindow(QtWidgets.QDialog):
                 return new_data
 
             def toPercentText(value):
-                return str(math.floor((value-1) * 100)) + '%'
+                return str(round((value-1) * 100,2)) + '%'
 
             SET_INFO = getData()
             SET_INFO['DMG_P'] += (myUI.textToFloat(myUI.viewEquipment_Set1_DMG_P.text())/100)
