@@ -80,7 +80,10 @@ class Calculator_UI():
         return page
 
     def updateMapleValue(me):
-        LEVEL = int(me.viewAbility_LEVEL.text())
+        if me.viewAbility_LEVEL.text():
+            LEVEL = int(me.viewAbility_LEVEL.text())
+        else:
+            LEVEL = 0
         AP = (LEVEL * 5) + 18
         MAPLE_15 = int(AP * 0.15)
         MAPLE_16 = int(AP * 0.16)
