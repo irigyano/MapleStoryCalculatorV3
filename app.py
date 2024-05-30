@@ -393,32 +393,32 @@ class AppWindow(QtWidgets.QDialog):
             IMPROVE_INFO = myCharactor.calcImprove(new_data)
             STATE_INFO = myCharactor.getEquivalent(IMPROVE_INFO['TOTAL'])
 
-            def toFloorStr(value): 
-                return str(math.floor(value))
+            def toRoundStr(value): 
+                return str(round(value,3))
             
-            myUI.viewParameter_EQUIVALENT_ALL_P.setText(toFloorStr(STATE_INFO['ALL_P']*100))
-            myUI.viewParameter_EQUIVALENT_Att.setText(toFloorStr(STATE_INFO['ATTACK']))
-            myUI.viewParameter_EQUIVALENT_Att_P.setText(toFloorStr(STATE_INFO['ATTACK_P']*100))
-            myUI.viewParameter_EQUIVALENT_Dmg_P.setText(toFloorStr(STATE_INFO['DMG_P']*100))
-            myUI.viewParameter_EQUIVALENT_Boss_P.setText(toFloorStr(STATE_INFO['BOSS_P']*100))
-            myUI.viewParameter_EQUIVALENT_Strike_P.setText(toFloorStr(STATE_INFO['STRIKE_P']*100))
-            myUI.viewParameter_EQUIVALENT_Ignore_P.setText(toFloorStr(STATE_INFO['IGNORE_P']*100))
+            myUI.viewParameter_EQUIVALENT_ALL_P.setText(toRoundStr(STATE_INFO['ALL_P']*100))
+            myUI.viewParameter_EQUIVALENT_Att.setText(toRoundStr(STATE_INFO['ATTACK']))
+            myUI.viewParameter_EQUIVALENT_Att_P.setText(toRoundStr(STATE_INFO['ATTACK_P']*100))
+            myUI.viewParameter_EQUIVALENT_Dmg_P.setText(toRoundStr(STATE_INFO['DMG_P']*100))
+            myUI.viewParameter_EQUIVALENT_Boss_P.setText(toRoundStr(STATE_INFO['BOSS_P']*100))
+            myUI.viewParameter_EQUIVALENT_Strike_P.setText(toRoundStr(STATE_INFO['STRIKE_P']*100))
+            myUI.viewParameter_EQUIVALENT_Ignore_P.setText(toRoundStr(STATE_INFO['IGNORE_P']*100))
             
-            myUI.viewParameter_EQUIVALENT_STR_CLEAR.setText(toFloorStr(STATE_INFO['STR_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_STR_P.setText(toFloorStr(STATE_INFO['STR_P']*100))
-            myUI.viewParameter_EQUIVALENT_STR_UNIQUE.setText(toFloorStr(STATE_INFO['STR_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_STR_CLEAR.setText(toRoundStr(STATE_INFO['STR_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_STR_P.setText(toRoundStr(STATE_INFO['STR_P']*100))
+            myUI.viewParameter_EQUIVALENT_STR_UNIQUE.setText(toRoundStr(STATE_INFO['STR_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_DEX_CLEAR.setText(toFloorStr(STATE_INFO['DEX_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_DEX_P.setText(toFloorStr(STATE_INFO['DEX_P']*100))
-            myUI.viewParameter_EQUIVALENT_DEX_UNIQUE.setText(toFloorStr(STATE_INFO['DEX_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_DEX_CLEAR.setText(toRoundStr(STATE_INFO['DEX_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_DEX_P.setText(toRoundStr(STATE_INFO['DEX_P']*100))
+            myUI.viewParameter_EQUIVALENT_DEX_UNIQUE.setText(toRoundStr(STATE_INFO['DEX_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_INT_CLEAR.setText(toFloorStr(STATE_INFO['INT_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_INT_P.setText(toFloorStr(STATE_INFO['INT_P']*100))
-            myUI.viewParameter_EQUIVALENT_INT_UNIQUE.setText(toFloorStr(STATE_INFO['INT_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_INT_CLEAR.setText(toRoundStr(STATE_INFO['INT_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_INT_P.setText(toRoundStr(STATE_INFO['INT_P']*100))
+            myUI.viewParameter_EQUIVALENT_INT_UNIQUE.setText(toRoundStr(STATE_INFO['INT_UNIQUE']))
             
-            myUI.viewParameter_EQUIVALENT_LUK_CLEAR.setText(toFloorStr(STATE_INFO['LUK_CLEAR']))
-            myUI.viewParameter_EQUIVALENT_LUK_P.setText(toFloorStr(STATE_INFO['LUK_P']*100))
-            myUI.viewParameter_EQUIVALENT_LUK_UNIQUE.setText(toFloorStr(STATE_INFO['LUK_UNIQUE']))
+            myUI.viewParameter_EQUIVALENT_LUK_CLEAR.setText(toRoundStr(STATE_INFO['LUK_CLEAR']))
+            myUI.viewParameter_EQUIVALENT_LUK_P.setText(toRoundStr(STATE_INFO['LUK_P']*100))
+            myUI.viewParameter_EQUIVALENT_LUK_UNIQUE.setText(toRoundStr(STATE_INFO['LUK_UNIQUE']))
         except Exception:
             QtWidgets.QMessageBox.warning(me, '提示', '輸入資料有誤')
             pass
