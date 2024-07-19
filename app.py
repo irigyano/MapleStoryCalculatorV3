@@ -501,61 +501,61 @@ class AppWindow(QtWidgets.QDialog):
             # print(STATE_INFO)
             
             if(RANGE_TYPE == '攻擊'):
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ATTACK']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['ATTACK'],3)))
             
             if(RANGE_TYPE == '％攻擊'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ATTACK_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['ATTACK_P']*100,3)))
             
             if(RANGE_TYPE == '％總傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DMG_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['DMG_P']*100,3)))
             
             if(RANGE_TYPE == '％Ｂ傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['BOSS_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['BOSS_P']*100,3)))
             
             if(RANGE_TYPE == '％爆傷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STRIKE_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['STRIKE_P']*100,3)))
             
             if(RANGE_TYPE == '％無視'):
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['IGNORE_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['IGNORE_P']*100,3)))
             
             if(RANGE_TYPE == '％全屬'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['ALL_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['ALL_P']*100,3)))
             
             if(RANGE_TYPE == '力量'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['STR_CLEAR'],3)))
             
             if(RANGE_TYPE == '％力量'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['STR_P']*100,3)))
             
             if(RANGE_TYPE == '不吃％力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['STR_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['STR_UNIQUE'],3)))
             
             if(RANGE_TYPE == '敏捷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['DEX_CLEAR'],3)))
                 
             if(RANGE_TYPE == '％敏捷'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['DEX_P']*100,3)))
             
             if(RANGE_TYPE == '不吃％敏'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['DEX_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['DEX_UNIQUE'],3)))
                 
             if(RANGE_TYPE == '智力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['INT_CLEAR'],3)))
             
             if(RANGE_TYPE == '％智力'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['INT_P']*100,3)))
             
             if(RANGE_TYPE == '不吃％智'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['INT_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['INT_UNIQUE'],3)))
                 
             if(RANGE_TYPE == '幸運'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_CLEAR']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['LUK_CLEAR'],3)))
                 
             if(RANGE_TYPE == '％幸運'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_P']*100))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['LUK_P']*100,3)))
             
             if(RANGE_TYPE == '不吃％幸'): 
-                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + toFloorStr(STATE_INFO['LUK_UNIQUE']))
+                myUI.viewParameter_IMPROVE_VALUE_AS.setText(PREFIX_TXT + str(round(STATE_INFO['LUK_UNIQUE'],3)))
 
             # 預估值
             myUI.viewParameter_ESTIMATE_STR.setText(toFloorStr(ESTIMATE_INFO['STR']))
@@ -574,7 +574,7 @@ class AppWindow(QtWidgets.QDialog):
             myUI.viewParameter_ESTIMATE_ATTACK_P.setText(toFloorStr(ESTIMATE_INFO['ATTACK_P']*100))
 
             myUI.viewParameter_ESTIMATE_DMG_P.setText(str(round(ESTIMATE_INFO['DMG_P']*100,2)))
-            myUI.viewParameter_ESTIMATE_BOSS_P.setText(toFloorStr(ESTIMATE_INFO['BOSS_P']*100))
+            myUI.viewParameter_ESTIMATE_BOSS_P.setText(str(round(ESTIMATE_INFO['BOSS_P']*100,2)))
 
             myUI.viewParameter_ESTIMATE_STRIKE_P.setText(str(round(ESTIMATE_INFO['STRIKE_P']*100,2)))
             myUI.viewParameter_ESTIMATE_IGNORE_P.setText(str(round(ESTIMATE_INFO['IGNORE_P']*100,2)))
