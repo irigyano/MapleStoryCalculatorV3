@@ -571,7 +571,7 @@ class AppWindow(QtWidgets.QDialog):
             myUI.viewParameter_ESTIMATE_LUK_P.setText(toFloorStr(ESTIMATE_INFO['LUK_P']*100))
 
             myUI.viewParameter_ESTIMATE_ATTACK.setText(toFloorStr(ESTIMATE_INFO['ATTACK']))
-            myUI.viewParameter_ESTIMATE_ATTACK_P.setText(toFloorStr(ESTIMATE_INFO['ATTACK_P']*100))
+            myUI.viewParameter_ESTIMATE_ATTACK_P.setText(str(round(ESTIMATE_INFO['ATTACK_P']*100))
 
             myUI.viewParameter_ESTIMATE_DMG_P.setText(str(round(ESTIMATE_INFO['DMG_P']*100,2)))
             myUI.viewParameter_ESTIMATE_BOSS_P.setText(str(round(ESTIMATE_INFO['BOSS_P']*100,2)))
