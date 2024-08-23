@@ -129,8 +129,8 @@ class Calculator_UI():
         me.makeField(page, QtWidgets.QLineEdit(page), 155, 75, 100, 24, '', 0, '％BOSS', 50).setEnabled(False)
         # me.makeField(page, QtWidgets.QLineEdit(page), 260, 75, 100, 24, '', 0, '　星力', 50).setEnabled(False)
         
-        me.makeField(page, QtWidgets.QLineEdit(page), 50, 105, 100, 24, '', 0, '％爆傷', 50).setEnabled(False)
-        me.makeField(page, QtWidgets.QLineEdit(page), 155, 105, 100, 24, '', 0, '％無視', 50).setEnabled(False)
+        me.makeField(page, QtWidgets.QLineEdit(page), 260, 75, 100, 24, '', 0, '％爆傷', 50).setEnabled(False)
+        me.makeField(page, QtWidgets.QLineEdit(page), 365, 75, 100, 24, '', 0, '％無視', 50).setEnabled(False)
 
         me.viewParameter_EQUIVALENT_ALL_P       = me.makeField(page, QtWidgets.QLabel(page), 5 + 155, 15, 100, 24)
         me.viewParameter_EQUIVALENT_HP_CLEAR   = me.makeField(page, QtWidgets.QLabel(page), 5 + 260, 15, 100, 24)
